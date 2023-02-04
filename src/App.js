@@ -1,23 +1,19 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Getdata from './components/Getdata';
+import Navbar from './components/Navbar.js'
 
 function App() {
+  const [ show, setshow ] = useState(false);
+  // let value = (show) ? "Hide" : "Show";
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <p></p>
+      <Button onClick={()=> setshow(!show) } variant="success">Show</Button>{' '}
+      {show && <Getdata/>}
     </div>
   );
 }
